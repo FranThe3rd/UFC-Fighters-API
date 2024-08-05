@@ -1,4 +1,4 @@
-package com.ufc.ultimate_fighting_championship;
+package com.ufc.ultimate_fighting_championship.fighter;
 
 
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ufc_fighters")
-public class Fighters {
+public class Fighter {
 
     @Id
     private Integer id;
@@ -20,10 +20,10 @@ public class Fighters {
     private String url;
 
 
-    public Fighters() {
+    public Fighter() {
     }
 
-    public Fighters(Integer id, String name, String height, String weight, String reach, String stance, String dob, String url) {
+    public Fighter(Integer id, String name, String height, String weight, String reach, String stance, String dob, String url) {
         this.id = id;
         this.name = name;
         this.height = height;

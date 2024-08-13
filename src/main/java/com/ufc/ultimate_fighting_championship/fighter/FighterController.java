@@ -23,7 +23,8 @@ public class FighterController {
     public List<Fighter> getFighters(@RequestParam(required = false) String name,
                                      @RequestParam(required = false) String weight,
                                      @RequestParam(required = false) String height,
-                                     @RequestParam(required = false) String stance) {
+                                     @RequestParam(required = false) String stance,
+                                     @RequestParam(required = false) String dob) {
 
         if (name != null) {
             return fighterService.getFighterByName(name);
@@ -33,7 +34,11 @@ public class FighterController {
             return fighterService.getFighterByHeight(height);
         } else if (stance != null) {
             return fighterService.getFighterByStance(stance);
-        } else {
+        } else if (dob != null) {
+            return fighterService.getFighterByBirthday(dob);
+        }
+
+        else {
             return fighterService.getAllFighters();
         }
     }

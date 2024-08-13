@@ -19,6 +19,11 @@ public class FighterService {
         return fighterRepository.findAll();
     }
 
+
+    /**
+     * This is all for searching functionality (example searching from an input)
+     */
+
     public List<Fighter> getFighterByName(String name) {
         return fighterRepository.findAll().stream()
                 .filter(fighter -> fighter.getName().toLowerCase().contains(name.toLowerCase()))
@@ -41,6 +46,12 @@ public class FighterService {
     public List<Fighter> getFighterByStance(String stance) {
         return fighterRepository.findAll().stream()
                 .filter(fighter -> fighter.getStance() != null && fighter.getStance().toLowerCase().contains(stance.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public List<Fighter> getFighterByBirthday(String dob) {
+        return fighterRepository.findAll().stream()
+                .filter(fighter -> fighter.getDob() != null && fighter.getDob().toLowerCase().contains(dob.toLowerCase()))
                 .collect(Collectors.toList());
     }
 
